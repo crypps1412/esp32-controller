@@ -1,10 +1,19 @@
 {
   "0": "Graphify Usage Rules (CLAUDE.md)",
-  "1": "main Component (idf_component_register)",
-  "2": "main.c",
+  "1": "main.c",
+  "2": "esp_err_t",
   "3": "advisor.md",
   "4": "coder.md",
   "5": "extractor.md",
   "6": "validator.md",
-  "7": "serial-bridge.ps1"
+  "7": "serial-bridge.ps1",
+  "8": "joystick.c",
+  "9": "esp_hid_gap.h",
+  "10": "add_bt_scan_result",
+  "11": "esp_hid_gap.c",
+  "12": "ble_gap_event_handler",
+  "13": "bt_gap_event_handler",
+  "14": "deinit_low_level",
+  "15": "esp_hid_scan",
+  "16": "stdio"
 }
