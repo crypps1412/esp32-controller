@@ -1,0 +1,99 @@
+# ---------------------------------------------------------------
+# ESP-IDF build output
+# ---------------------------------------------------------------
+build/
+build_*/
+*.o
+*.a
+*.bin
+*.elf
+*.map
+*.out
+# Host-side utilities compiled on Windows
+*.exe
+# Generated in the build directory
+flasher_args.json
+
+# Generated config (sdkconfig.defaults is the source of truth - commit that)
+sdkconfig
+sdkconfig.old
+!sdkconfig.defaults*
+!sdkconfig.ci*
+
+# Component manager / local IDF tools
+managed_components/
+dependencies.lock.bak
+/components/.idf/
+**/components/.idf/
+.espressif/
+
+# QEMU emulation images (idf.py qemu)
+qemu_flash.bin
+qemu_efuse.bin
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+install_manifest.txt
+CTestTestfile.cmake
+
+# Language servers
+.clangd/
+.cache/
+.ccls-cache/
+compile_commands.json
+
+# ---------------------------------------------------------------
+# Editors / tools (shared .vscode and .devcontainer config IS committed)
+# ---------------------------------------------------------------
+.vscode/*.log
+.vscode/ipch/
+.history/
+*.code-workspace
+*.workspace
+*.user
+# Visual Studio
+*.suo
+*.sln.docstates
+*.swp
+*.swo
+*~
+
+# Claude Code: shared settings/agents are committed, personal ones are not
+.claude/settings.local.json
+.claude/worktrees/
+CLAUDE.local.md
+
+# graphify: keep the graph + report (referenced by CLAUDE.md), drop caches
+# and machine-specific files (.graphify_python holds an absolute interpreter path)
+graphify-out/*
+!graphify-out/graph.json
+!graphify-out/graph.html
+!graphify-out/GRAPH_REPORT.md
+!graphify-out/.graphify_labels.json
+
+# ---------------------------------------------------------------
+# Python (idf.py / esptool helpers)
+# ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+venv/
+.venv/
+env/
+
+# ---------------------------------------------------------------
+# OS junk / misc
+# ---------------------------------------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+.directory
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.bak
+*.tmp
+*.log

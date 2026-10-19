@@ -1,0 +1,27 @@
+{
+	"name": "ESP-IDF QEMU",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "bash",
+				// Host COM port, bridged over RFC2217 by tools/serial-bridge.ps1 on Windows
+				"idf.port": "rfc2217://host.docker.internal:${localEnv:ESP_BRIDGE_PORT:4000}?ign_set_control"
+			},
+			"extensions": [
+				"espressif.esp-idf-extension",
+				"espressif.esp-idf-web"
+			]
+		}
+	},
+	"containerEnv": {
+		// Picked up by idf.py, so `idf.py flash monitor` needs no -p
+		"ESPPORT": "rfc2217://host.docker.internal:${localEnv:ESP_BRIDGE_PORT:4000}?ign_set_control"
+	},
+	"runArgs": [
+		"--privileged",
+		"--add-host=host.docker.internal:host-gateway"
+	]
+}

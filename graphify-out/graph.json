@@ -1,0 +1,440 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "esp_idf_build_chain",
+        "label": "ESP-IDF Project Build Chain",
+        "nodes": [
+          "cmakelists_esp32_controller_project",
+          "cmakelists_esp_idf_build_system",
+          "main_cmakelists_main_component",
+          "main_main"
+        ],
+        "relation": "form",
+        "confidence": "INFERRED",
+        "confidence_score": 0.85,
+        "source_file": "CMakeLists.txt"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": "main_main_app_main",
+      "label": "app_main()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "main.c",
+      "file_type": "code",
+      "norm_label": "app_main()",
+      "source_file": "main/main.c",
+      "source_location": "L3"
+    },
+    {
+      "id": "cmakelists_esp32_controller_project",
+      "label": "esp32_controller CMake Project",
+      "_origin": "ast",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "main Component (idf_component_register)",
+      "contributor": null,
+      "file_type": "code",
+      "norm_label": "esp32_controller cmake project",
+      "source_file": "CMakeLists.txt",
+      "source_location": "L8",
+      "source_url": null
+    },
+    {
+      "id": "main_cmakelists_main_component",
+      "label": "main Component (idf_component_register)",
+      "_origin": "ast",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "main Component (idf_component_register)",
+      "contributor": null,
+      "file_type": "code",
+      "norm_label": "main component (idf_component_register)",
+      "source_file": "main/CMakeLists.txt",
+      "source_location": "L1",
+      "source_url": null
+    },
+    {
+      "id": "cmakelists_esp_idf_build_system",
+      "label": "ESP-IDF Build System (project.cmake)",
+      "_origin": "ast",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "main Component (idf_component_register)",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "esp-idf build system (project.cmake)",
+      "rationale": "ESP-IDF requires cmake_minimum_required, include of project.cmake, and project() in this exact order as boilerplate.",
+      "source_file": "CMakeLists.txt",
+      "source_location": "L7",
+      "source_url": null
+    },
+    {
+      "id": "main_main",
+      "label": "main.c",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "main.c",
+      "file_type": "code",
+      "norm_label": "main.c",
+      "source_file": "main/main.c",
+      "source_location": "L1"
+    },
+    {
+      "id": "claude_agents_advisor",
+      "label": "advisor.md",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "advisor.md",
+      "file_type": "document",
+      "frontmatter": {
+        "name": "advisor",
+        "description": "Senior embedded/ESP-IDF advisor. Use before non-trivial changes to design the approach (BLE/Bluetooth stack choice, task/queue architecture, memory and power trade-offs, partition/sdkconfig choices) and to produce a concrete implementation plan for the coder.",
+        "model": "opus",
+        "tools": "Read, Grep, Glob, Bash, WebSearch, WebFetch"
+      },
+      "node_kind": "page",
+      "norm_label": "advisor.md",
+      "source_file": ".claude/agents/advisor.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "claude_agents_coder",
+      "label": "coder.md",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "coder.md",
+      "file_type": "document",
+      "frontmatter": {
+        "name": "coder",
+        "description": "Implements code changes (ESP-IDF C firmware, CMake, Kconfig, scripts) from a concrete plan handed over by the orchestrator. Use for any task that writes or edits code.",
+        "model": "sonnet"
+      },
+      "node_kind": "page",
+      "norm_label": "coder.md",
+      "source_file": ".claude/agents/coder.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "claude_agents_extractor",
+      "label": "extractor.md",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "extractor.md",
+      "file_type": "document",
+      "frontmatter": {
+        "name": "extractor",
+        "description": "Fast, cheap, read-only content extraction. Use to pull specific facts out of files - function signatures, config values, log excerpts, datasheet/doc snippets, sdkconfig options, build output errors - and return them verbatim with file:line references.",
+        "model": "haiku",
+        "tools": "Read, Grep, Glob, Bash"
+      },
+      "node_kind": "page",
+      "norm_label": "extractor.md",
+      "source_file": ".claude/agents/extractor.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "claude_agents_validator",
+      "label": "validator.md",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "validator.md",
+      "file_type": "document",
+      "frontmatter": {
+        "name": "validator",
+        "description": "Validates finished changes. Use after the coder reports back - reviews the diff against the plan, builds with idf.py, and reports pass/fail with evidence.",
+        "model": "opus",
+        "tools": "Read, Grep, Glob, Bash"
+      },
+      "node_kind": "page",
+      "norm_label": "validator.md",
+      "source_file": ".claude/agents/validator.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "tools_serial_bridge",
+      "label": "serial-bridge.ps1",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "serial-bridge.ps1",
+      "file_type": "code",
+      "norm_label": "serial-bridge.ps1",
+      "source_file": "tools/serial-bridge.ps1",
+      "source_location": "L1"
+    },
+    {
+      "id": "claude_knowledge_graph",
+      "label": "Graphify Knowledge Graph (graphify-out)",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 0,
+      "community_name": "Graphify Usage Rules (CLAUDE.md)",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "graphify knowledge graph (graphify-out)",
+      "rationale": "Scoped subgraph queries (query/path/explain) return much smaller context than GRAPH_REPORT.md or raw grep output; graph kept current via AST-only update with no API cost.",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "claude_graph_report",
+      "label": "GRAPH_REPORT.md",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 0,
+      "community_name": "Graphify Usage Rules (CLAUDE.md)",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "graph_report.md",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "claude_graphify_rules",
+      "label": "Graphify Usage Rules (CLAUDE.md)",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 0,
+      "community_name": "Graphify Usage Rules (CLAUDE.md)",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "graphify usage rules (claude.md)",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "claude_wiki_index",
+      "label": "graphify-out/wiki/index.md",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 0,
+      "community_name": "Graphify Usage Rules (CLAUDE.md)",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "graphify-out/wiki/index.md",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "claude_graphify_query",
+      "label": "graphify query / path / explain commands",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 0,
+      "community_name": "Graphify Usage Rules (CLAUDE.md)",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "graphify query / path / explain commands",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "claude_graphify_update",
+      "label": "graphify update (post-modification refresh)",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 0,
+      "community_name": "Graphify Usage Rules (CLAUDE.md)",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "graphify update (post-modification refresh)",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "stdio",
+      "label": "stdio",
+      "_origin": "semantic",
+      "community": 2,
+      "community_name": "main.c",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "stdio",
+      "source_file": "",
+      "type": "external"
+    }
+  ],
+  "links": [
+    {
+      "source": "main_main",
+      "target": "stdio",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "main/main.c",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "main_main",
+      "target": "main_main_app_main",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "main/main.c",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "cmakelists_esp32_controller_project",
+      "target": "cmakelists_esp_idf_build_system",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CMakeLists.txt",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "main_cmakelists_main_component",
+      "target": "main_main",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "main/CMakeLists.txt",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "main_cmakelists_main_component",
+      "target": "cmakelists_esp_idf_build_system",
+      "relation": "implements",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "main/CMakeLists.txt",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_graphify_rules",
+      "target": "claude_graph_report",
+      "relation": "references",
+      "_origin": "semantic",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_graphify_rules",
+      "target": "claude_graphify_query",
+      "relation": "references",
+      "_origin": "semantic",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_graphify_rules",
+      "target": "claude_graphify_update",
+      "relation": "references",
+      "_origin": "semantic",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_graphify_rules",
+      "target": "claude_knowledge_graph",
+      "relation": "references",
+      "_origin": "semantic",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_graphify_rules",
+      "target": "claude_wiki_index",
+      "relation": "references",
+      "_origin": "semantic",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_graphify_query",
+      "target": "claude_knowledge_graph",
+      "relation": "conceptually_related_to",
+      "_origin": "semantic",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_graphify_update",
+      "target": "claude_knowledge_graph",
+      "relation": "conceptually_related_to",
+      "_origin": "semantic",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cmakelists_esp32_controller_project",
+      "target": "main_cmakelists_main_component",
+      "relation": "references",
+      "_origin": "semantic",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "CMakeLists.txt",
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "esp_idf_build_chain",
+      "label": "ESP-IDF Project Build Chain",
+      "nodes": [
+        "cmakelists_esp32_controller_project",
+        "cmakelists_esp_idf_build_system",
+        "main_cmakelists_main_component",
+        "main_main"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "CMakeLists.txt"
+    }
+  ]
+}
